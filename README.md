@@ -1,8 +1,8 @@
-# CSV ko Gzip me Convert karna
+# Convert CSV to a Gzipped Binary Stream
 
-Ek chhota Python project jisme ek CSV text ko memory me gzip se compress
-kiya jata hai, phir decompress karke check kiya jata hai ke data same hai.
-Koi file disk par nahi banti, sab kuch RAM me hota hai.
+A small Python project that takes a CSV text, compresses it in memory using
+gzip, then decompresses it and checks that the data is still the same.
+Nothing is written to disk, everything happens in RAM.
 
 ## Idea
 
@@ -12,33 +12,33 @@ CSV text -> bytes -> gzip compress -> gzip decompress -> bytes -> text -> check
 
 ## Files
 
-- `csv_gzip_task.py` - asli short task, seedha chalane ke liye.
-- `learn_gzip.py` - wahi cheez step-by-step, har step apna explanation print karta hai.
-- `learn_gzip.txt` - sirf padhne wali notes (kuch run nahi karna).
+- `csv_gzip_task.py` - the actual short task, ready to run.
+- `learn_gzip.py` - the same thing step by step, each step prints its own explanation.
+- `learn_gzip.txt` - plain reading notes (nothing to run).
 
-## Chalane ka tariqa
+## How to run
 
 ```bash
 python3 csv_gzip_task.py
 ```
 
-Output me CSV print hoga aur niche `True` aana chahiye.
-`True` ka matlab compress/decompress ke baad data bilkul same raha.
+The CSV is printed and you should see `True` at the end.
+`True` means the data stayed exactly the same after compress/decompress.
 
-Seekhne ke liye:
+To learn step by step:
 
 ```bash
 python3 learn_gzip.py
 ```
 
-## Kya seekhne ko milta hai
+## What you learn
 
-- `io.StringIO` se text stream handle karna.
-- `io.BytesIO` se binary data handle karna.
-- string aur bytes ke beech convert karna (`.encode` / `.decode`).
-- `gzip` se compress aur decompress karna.
+- Using `io.StringIO` to handle a text stream.
+- Using `io.BytesIO` to handle binary data.
+- Converting between strings and bytes (`.encode` / `.decode`).
+- Compressing and decompressing with `gzip`.
 
 ## Note
 
-Chhoti file compress hone par size bada lag sakta hai (25 -> 45 bytes)
-kyunki gzip apna header lagata hai. Bade data par hi asli faida dikhta hai.
+A tiny file can look bigger after compression (25 -> 45 bytes) because gzip
+adds its own header. The real benefit shows up on larger data.
